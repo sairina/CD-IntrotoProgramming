@@ -12,29 +12,17 @@
 		}
 	    document.onkeydown = function(e){
 			console.log(e);
-			if(e.keyCode == 37){ //LEFT
+			if(e.keyCode == 37 && leftValue <= 0){ //LEFT
 				leftValue = leftValue - 10;
-				if(leftValue <= 0) { //ninja stops moving when leftValue <= 0
-				leftValue = 0; //ninja stops at 0
-				}
 			}
-			else if (e.keyCode == 39){ //RIGHT
+			else if (e.keyCode == 39 && leftValue >= 500){ //RIGHT
 				leftValue = leftValue + 10;
-				if(leftValue >= 500 ) { //ninja stops moving when leftValue >= 500
-				leftValue = 500; //ninja stops at 500
-				}
 			}
-			else if (e.keyCode == 40){ //DOWN 
+			else if (e.keyCode == 40 && topValue >= 500){ //DOWN 
 				topValue = topValue + 10;
-				if(topValue >= 500) { //ninja stops moving down when topValue >= 500
-				topValue = 500; //ninja stops at 500
-				}
 			}
-			else if (e.keyCode == 38) { //UP
+			else if (e.keyCode == 38 && topValue <= 0) { //UP
 				topValue = topValue - 10;
-				if(topValue <= 0) { //ninja stops moving up when topValue <=0
-				topValue = 0; //ninja stops at 0
-				}
 			}
 			update();
 		}
